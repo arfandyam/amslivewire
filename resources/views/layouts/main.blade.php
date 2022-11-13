@@ -182,21 +182,7 @@
                             <i class="flaticon-381-networking"></i>
                             <span class="nav-text">Dashboard</span>
                         </a>
-                    </li>
-                    <h5>
-                        <p class="fs-12 ml-3 mt-3 mb-3 text-black">Rincian Pekerjaan</p>
-                    </h5>
-                    <li>
-                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-notepad-2"></i>
-                            <span class="nav-text">Rincian Pekerjaan</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a class="" href="/categories">Kategori</a></li>
-                            <li><a class="nav-link {{ $title === 'Kontrak Induk' ? 'active' : '' }}"
-                                    href="/rincian">Item</a></li>
-                        </ul>
-                    </li>
+                    </li>                    
                     <h5>
                         <p class="fs-12 ml-3 mt-3 mb-3 text-black">Anggaran</p>
                     </h5>
@@ -212,17 +198,53 @@
                             </li>
                         </ul>
                     </li>
+                    {{-- <h5>
+                        <p class="fs-12 ml-3 mt-3 mb-3 text-black">Rincian Pekerjaan</p>
+                    </h5>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-notepad-2"></i>
+                            <span class="nav-text">Rincian Pekerjaan</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a class="" href="/categories">Kategori</a></li>
+                            <li><a class="nav-link {{ $title === 'Kontrak Induk' ? 'active' : '' }}"
+                                    href="/rincian">Item</a></li>
+                        </ul>
+                    </li>                     --}}
                     <h5>
-                        <p class="fs-12 ml-3 mt-3 mb-1 text-black"> Buat Kontrak (PO)</p>
+                        <p class="fs-12 ml-3 mt-3 mb-1 text-black">KHS</p>
                     </h5>
                     <li>
                         <a class="nav-link {{ Request::is('khs*') ? 'active' : '' }}" href="/khs"
                             aria-expanded="">
                             <i class="bi bi-table"></i>
-                            <span class="nav-text">Buat Kontrak</span>
+                            <span class="nav-text">Buat PO</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a class="" href="/jeniskhs">Jenis KHS</a></li>
+                            <li><a class="" href="/itemkhs">Item KHS</a></li>
+                            <li><a class="" href="/vendorkhs">Vendor KHS</a></li>
+                            <li><a class="" href="/kontrakinduk">Kontrak Induk KHS</a></li>
+                            <li><a class="" href="/detailkhs">Addendum KHS</a></li>
+                            {{-- <li><a class="nav-link {{ $title === 'Kontrak Induk' ? 'active' : '' }}"
+                                    href="/rincian">Item</a></li> --}}
+                            {{-- <ul aria-expanded="false">
+                                <li><a class="" href="">Jenis KHS</a></li>
+                            </ul> --}}
+                        </ul>
                     </li>
                     <h5>
+                        <p class="fs-12 ml-3 mt-3 mb-1 text-black">Pejabat</p>
+                    </h5>
+                    <li>
+                        <a class="nav-link {{ Request::is('khs*') ? 'active' : '' }}" href="/pejabat"
+                            aria-expanded="">
+                            <i class="bi bi-table"></i>
+                            <span class="nav-text">Tabel Pejabat</span>
+                        </a>                        
+                    </li>
+                    {{-- <h5>
                         <p class="fs-12 ml-3 mt-3 mb-1 text-black">Harga HPE</p>
                     </h5>
                     <li>
@@ -231,7 +253,7 @@
                             <i class="bi bi-file-earmark-spreadsheet"></i>
                             <span class="nav-text">HPE</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="add-menu-sidebar" id="products">
                     <img src="{{ asset('/') }}./asset/frontend/images/calendar.png" alt=""

@@ -2,17 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RincianInduk;
-use App\Models\ItemRincianInduk;
-use \Http\Resources\RincianIndukResource;
-use App\Http\Requests\StoreRincianIndukRequest;
-use App\Http\Requests\UpdateRincianIndukRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Yajra\DataTables\Facades\DataTables;
-
-class RincianIndukController extends Controller
+use App\Models\Pejabat;
+class PejabatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,11 +24,11 @@ class RincianIndukController extends Controller
         //     'title' => 'Item Kontrak Induk',
         // ]);
 
-        $itemRincian  = ItemRincianInduk::get();
-        return view('rincian.index', [
-            'title' => 'Item KHS',
-            'items' => RincianInduk::orderBy('id', 'DESC')->get(),
-            'kategori' => $itemRincian
+        // $itemRincian  = ItemRincianInduk::get();
+        return view('pejabat.index', [
+            'title' => 'Pejabat',
+            'pejabats' => Pejabat::orderBy('id', 'DESC')->get(),
+            // 'kategori' => $itemRincian
         ]);
     }
 

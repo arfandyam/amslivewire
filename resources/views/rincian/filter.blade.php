@@ -25,7 +25,7 @@
                 <td>
 
                     <div class="d-flex">
-                        <a href="/rincian/{{ $item->id }}/edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                        <a href="/itemkhs/{{ $item->id }}/edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                 class="fa fa-pencil"></i></a>
                         <a href="#" data-toggle="modal" data-target="#deleteModal{{ $item->id }}"><i
                                 class="btn btn-danger shadow btn-xs sharp fa fa-trash"></i></a>

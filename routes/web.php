@@ -10,6 +10,10 @@ use App\Http\Controllers\PrkController;
 use App\Http\Controllers\SkkController;
 use App\Http\Controllers\RincianIndukController;
 use App\Http\Controllers\HpeController;
+use App\Http\Controllers\KhsController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\KontrakIndukController;
+use App\Http\Controllers\PejabatController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,33 +33,44 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Dashboard
 Route::get('/dashboard', [MainController::class, 'index']);
+
+//Login
 Route::get('/login', [LoginController::class, 'login']);
 
-Route::resource('categories', ItemRincianIndukController::class);
-
-Route::get('/search-categories', [ItemRincianIndukController::class, 'searchcategories']);
-
-Route::resource('rincian', RincianIndukController::class);
-Route::any('rincian/filter', [RincianIndukController::class, 'filter']);
-Route::get('/search-rincian', [RincianIndukController::class, 'searchRincian']);
-
-Route::get('deleteitem/{id}', [RincianIndukController::class, 'destroy']);
-
-Route::resource('khs', RabController::class);
-Route::get('/export_kontrak_pdf/{id}', [RabController::class, 'export_kontrak_pdf']);
-Route::get('/buat-kontrak', [RabController::class, 'buat_kontrak']);
-
-
+// Anggaran
+//SKK
 Route::resource('skk', SkkController::class);
 Route::post('getSKK', [SkkController::class, 'getSKK']);
 Route::post('getCategory', [SkkController::class, 'getCategory']);
 Route::post('getItem', [SkkController::class, 'getItem']);
-
-Route::resource('prk', PrkController::class);
 Route::get('deleteskk/{id}', [SkkController::class, 'destroy']);
 
+//PRK
+Route::resource('prk', PrkController::class);
 Route::get('deleteprk/{id}', [PrkController::class, 'destroy']);
+
+Route::resource('categories', ItemRincianIndukController::class);
+Route::get('/search-categories', [ItemRincianIndukController::class, 'searchcategories']);
+
+// KHS
+Route::resource('khs', RabController::class);
+Route::resource('jeniskhs', KhsController::class);
+Route::resource('itemkhs', RincianIndukController::class);
+Route::resource('vendorkhs', VendorController::class);
+Route::resource('kontrakinduk', KontrakIndukController::class);
+Route::any('itemkhs/filter', [RincianIndukController::class, 'filter']);
+Route::get('/search-rincian', [RincianIndukController::class, 'searchRincian']);
+
+Route::get('deleteitem/{id}', [RincianIndukController::class, 'destroy']);
+
+//Buat PO
+Route::get('/export_kontrak_pdf/{id}', [RabController::class, 'export_kontrak_pdf']);
+Route::get('/buat-kontrak', [RabController::class, 'buat_kontrak']);
+
+//Pejabat
+Route::resource('pejabat', PejabatController::class);
 
 Route::resource('hpe', HpeController::class);
 
