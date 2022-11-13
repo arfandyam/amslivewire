@@ -156,7 +156,7 @@ class RabController extends Controller
 
     public function export_kontrak_pdf($id){
         $values_pdf_page1 = Rab::where('id', $id)->get();
-        $rab_id = Rab::where('id', $id)->get(['rab_id']);
+        $rab_id = Rab::where('id', $id)->value('rab_id');
         $values_pdf_page2 = OrderedRab::where('rab_id', $rab_id)->get();
         $pdf = Pdf::loadView('pdf.kontrak', [
             "value"=>$values_pdf_page1,

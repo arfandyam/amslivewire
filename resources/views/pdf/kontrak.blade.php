@@ -14,11 +14,37 @@
             float: right;
             margin-right: 50px;           
         }
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        
+        }
     </style>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
+  <header>
+    <img src="{{ public_path('/') }}./asset/frontend/images/pln.png" alt="" style="width:700px; margin-bottom:5px;">
+  </header>
     @foreach($value as $value)
     <div class="container1">
         <div class="menue">
@@ -65,7 +91,7 @@
     </div>
     @endforeach
     <div class="page-break"></div>
-    <table id="customers">
+    {{-- <table id="customers">
         <tr>
           <th>Company</th>
           <th>Contact</th>
@@ -122,10 +148,11 @@
           <td>France</td>
         </tr>
       </table>
-      
-    {{-- <table id="customers">
+       --}}
+    <table id="customers">
         <tr>
-            <th>Uraian</th>
+            <th>Kategori</th>
+            <th>Item</th>
             <th>Satuan</th>                                                
             <th>Volume</th>                                                
             <th>Harga Satuan</th>
@@ -141,6 +168,6 @@
             <td>{{ $orderedrab->harga }}</td>                                                                    
         </tr>                
         @endforeach       
-    </table>                           --}}
+    </table>                          
 </body>
 </html>
